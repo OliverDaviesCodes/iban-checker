@@ -7,7 +7,7 @@ tasks:
       export FLASK_APP=api.py
       export FLASK_ENV=development
     init: |
-      pip install flask
+      pip install flask pytest
     command: |
       flask run
 
