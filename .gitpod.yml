@@ -1,0 +1,13 @@
+ports:
+  - port: 5000
+    onOpen: open-preview
+
+tasks:
+  - before: |
+      export FLASK_APP=api.py
+      export FLASK_ENV=development
+    init: |
+      pip install flask
+    command: |
+      flask run
+
