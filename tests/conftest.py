@@ -1,6 +1,6 @@
-import pytest
 from flask import Flask
 from api import app
+import pytest
 
 @pytest.fixture()
 def app():

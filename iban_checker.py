@@ -57,17 +57,21 @@ COUNTRIES = {"AL": [28, "Albania"],
              "GB": [22, "United Kingdom"]}
 
 def iban_is_valid(iban):
+    """ Identify if IBAN is valid according to https://en.wikipedia.org/wiki/International_Bank_Account_Number """
     IBAN_LIST = list(iban)
-    COUNTRY = IBAN_LIST[:2]
+    COUNTRY = IBAN_LIST[:2]  # Identifies the Iban country according to its characters
     LENGTH = len(IBAN_LIST)
     COUNTRY_STRING = ''.join(COUNTRY)
+
+    #Identifies if the Ibans country is present in the list
     if COUNTRY_STRING in COUNTRIES:
         ACTIVE_COUNTRY = COUNTRIES[COUNTRY_STRING]
-        if LENGTH == ACTIVE_COUNTRY[0]:
+        #Determines the IBANs length from list of IBANs and there indexes
+        if LENGTH == ACTIVE_COUNTRY[0]: 
             HEADER = IBAN_LIST[:4]
             BODY = IBAN_LIST[4:]
-            IBAN_LIST = BODY+HEADER
-            for i, s in enumerate(IBAN_LIST):
+            IBAN_LIST = BODY+HEADER  # Rotates the necessary IBAN characters for validation 
+            for i, s in enumerate(IBAN_LIST):  # Determines the values of the letters
                 if s in LETTERS:
                     IBAN_LIST[i] = LETTERS[s]
             IBAN_STRING = ''.join(str(i) for i in IBAN_LIST)
