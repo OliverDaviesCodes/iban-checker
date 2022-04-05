@@ -16,5 +16,3 @@ def validate_iban():
     valid = iban_is_valid(iban)
     print(valid)   
     return jsonify(statusCode=200, valid=valid)
-
-
