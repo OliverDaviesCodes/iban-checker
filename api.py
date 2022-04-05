@@ -4,7 +4,7 @@ from iban_checker import iban_is_valid
 app = Flask(__name__)
 
 
-@app.route('/validate-iban/', methods=['POST'])
+@app.route('/validate-iban', methods=['POST'])
 def validate_iban():
     """ recieves a call from a web-server to validate an IBAN """
     data = request.json

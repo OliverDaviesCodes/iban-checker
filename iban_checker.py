@@ -1,5 +1,4 @@
 # Dictionary - Refer to ISO 7064 mod 97-10
-
 LETTERS = {"A": 10, "B": 11, "C": 12, "D": 13, "E": 14, "F": 15, "G": 16,
            "H": 17, "I": 18, "J": 19, "K": 20, "L": 21, "M": 22, "N": 23,
            "O": 24, "P": 25, "Q": 26, "R": 27, "S": 28, "T": 29, "U": 30,
@@ -76,7 +75,7 @@ def iban_is_valid(iban):
                     IBAN_LIST[i] = LETTERS[s]
             IBAN_STRING = ''.join(str(i) for i in IBAN_LIST)
             IBAN_INT = int(IBAN_STRING)
-            if IBAN_INT % 97 == 1:
+            if IBAN_INT % 97 == 1: # Using the mod-97 operation to determine validation
                 return True
             else:
                 return False
